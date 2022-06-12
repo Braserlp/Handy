@@ -80,12 +80,13 @@ input.onButtonPressed(Button.AB, function () {
         }
     }
     if (ImMainMenu == 1) {
-        ImMainMenu = 0
         if (MainMenuSeite == 1) {
             Rechner()
+            ImMainMenu = 0
         }
         if (MainMenuSeite == 2) {
             Messenger()
+            ImMainMenu = 0
         }
         if (MainMenuSeite == 3) {
         	
@@ -227,11 +228,11 @@ basic.forever(function () {
             }
             if (RechnerAuswahl2 == 4) {
                 basic.showLeds(`
-                    . . # . .
-                    . . . . .
                     . # # # .
                     . . . . .
-                    . . # . .
+                    # # # # #
+                    . . . . .
+                    . # # # .
                     `)
             }
         }
