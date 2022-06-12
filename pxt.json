@@ -3,6 +3,8 @@
     "description": "",
     "dependencies": {
         "core": "*",
+        "servo": "*",
+        "radio-broadcast": "*",
         "radio": "*"
     },
     "files": [
