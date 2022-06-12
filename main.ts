@@ -355,7 +355,7 @@ basic.forever(function () {
     if (ImMainMenu == 1) {
         if (MainMenuSeite == 3) {
             basic.showLeds(`
-                # . # . #
+                # . . . #
                 # # . # #
                 # . # . #
                 # . . . #
