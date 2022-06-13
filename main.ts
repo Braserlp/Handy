@@ -1,6 +1,14 @@
 enum RadioMessage {
     message1 = 49434
 }
+input.onPinPressed(TouchPin.P3, function () {
+    if (MessengerAktiv == 1) {
+        if (MessengerTastatur == 1) {
+            Nachricht = "" + Buchstabe1 + Buchstabe2 + Buchstabe3 + Buchstabe4 + Buchstabe5 + Buchstabe6 + Buchstabe7 + Buchstabe8 + Buchstabe9 + Buchstabe10 + Buchstabe11 + Buchstabe12 + Buchstabe13 + Buchstabe14 + Buchstabe15 + Buchstabe16 + Buchstabe17 + Buchstabe18 + Buchstabe19 + Buchstabe20 + Buchstabe21 + Buchstabe22 + Buchstabe23 + Buchstabe24 + Buchstabe25 + Buchstabe26
+            radio.sendString(Nachricht)
+        }
+    }
+})
 input.onButtonPressed(Button.A, function () {
     if (MainMenuSeite > 1) {
         MainMenuSeite += -1
@@ -166,6 +174,87 @@ input.onButtonPressed(Button.AB, function () {
             . . . . .
             . . . . .
             `)
+        if (MessengerBuchstabe == 0) {
+            Buchstabe1 = "_"
+        }
+        if (MessengerBuchstabe == 1) {
+            Buchstabe2 = "A"
+        }
+        if (MessengerBuchstabe == 2) {
+            Buchstabe2 = "B"
+        }
+        if (MessengerBuchstabe == 3) {
+            Buchstabe3 = "C"
+        }
+        if (MessengerBuchstabe == 4) {
+            Buchstabe4 = "D"
+        }
+        if (MessengerBuchstabe == 5) {
+            Buchstabe5 = "E"
+        }
+        if (MessengerBuchstabe == 6) {
+            Buchstabe6 = "F"
+        }
+        if (MessengerBuchstabe == 7) {
+            Buchstabe7 = "G"
+        }
+        if (MessengerBuchstabe == 8) {
+            Buchstabe8 = "H"
+        }
+        if (MessengerBuchstabe == 9) {
+            Buchstabe9 = "I"
+        }
+        if (MessengerBuchstabe == 10) {
+            Buchstabe10 = "J"
+        }
+        if (MessengerBuchstabe == 11) {
+            Buchstabe11 = "K"
+        }
+        if (MessengerBuchstabe == 12) {
+            Buchstabe12 = "L"
+        }
+        if (MessengerBuchstabe == 13) {
+            Buchstabe13 = "M"
+        }
+        if (MessengerBuchstabe == 14) {
+            Buchstabe14 = "N"
+        }
+        if (MessengerBuchstabe == 15) {
+            Buchstabe15 = "O"
+        }
+        if (MessengerBuchstabe == 16) {
+            Buchstabe16 = "P"
+        }
+        if (MessengerBuchstabe == 17) {
+            Buchstabe17 = "Q"
+        }
+        if (MessengerBuchstabe == 18) {
+            Buchstabe18 = "R"
+        }
+        if (MessengerBuchstabe == 19) {
+            Buchstabe19 = "S"
+        }
+        if (MessengerBuchstabe == 20) {
+            Buchstabe20 = "T"
+        }
+        if (MessengerBuchstabe == 21) {
+            Buchstabe21 = "U"
+        }
+        if (MessengerBuchstabe == 22) {
+            Buchstabe22 = "V"
+        }
+        if (MessengerBuchstabe == 23) {
+            Buchstabe23 = "W"
+        }
+        if (MessengerBuchstabe == 24) {
+            Buchstabe24 = "X"
+        }
+        if (MessengerBuchstabe == 25) {
+            Buchstabe25 = "Y"
+        }
+        if (MessengerBuchstabe == 26) {
+            Buchstabe26 = "Z"
+        }
     }
 })
 radio.onReceivedString(function (receivedString) {
@@ -217,8 +306,6 @@ let RechnerZahl2 = 0
 let RechnerZahl1 = 0
 let RechnerAusgerechnet = 0
 let MessengerBuchstabe = 0
-let MessengerTastatur = 0
-let MessengerAktiv = 0
 let RechnerAuswahl3 = 0
 let RechnerAuswahl3Aktiv = 0
 let RechnerAuswahl2 = 0
@@ -226,6 +313,35 @@ let RechnerAuswahl2Aktiv = 0
 let RechnerAuswahl1 = 0
 let RechnerAuswahl1Aktiv = 0
 let RechnerAktiv = 0
+let Buchstabe26 = ""
+let Buchstabe25 = ""
+let Buchstabe24 = ""
+let Buchstabe23 = ""
+let Buchstabe22 = ""
+let Buchstabe21 = ""
+let Buchstabe20 = ""
+let Buchstabe19 = ""
+let Buchstabe18 = ""
+let Buchstabe17 = ""
+let Buchstabe16 = ""
+let Buchstabe15 = ""
+let Buchstabe14 = ""
+let Buchstabe13 = ""
+let Buchstabe12 = ""
+let Buchstabe11 = ""
+let Buchstabe10 = ""
+let Buchstabe9 = ""
+let Buchstabe8 = ""
+let Buchstabe7 = ""
+let Buchstabe6 = ""
+let Buchstabe5 = ""
+let Buchstabe4 = ""
+let Buchstabe3 = ""
+let Buchstabe2 = ""
+let Buchstabe1 = ""
+let Nachricht = ""
+let MessengerTastatur = 0
+let MessengerAktiv = 0
 let EinstellungenGruppenPages = 0
 let EinstellungenGruppenNummer = 0
 let EinstellungenAktiv = 0
@@ -293,6 +409,9 @@ basic.forever(function () {
 basic.forever(function () {
     if (MessengerAktiv == 1) {
         if (MessengerTastatur == 1) {
+            if (MessengerBuchstabe == 0) {
+                basic.showString("_")
+            }
             if (MessengerBuchstabe == 1) {
                 basic.showString("A")
             }
