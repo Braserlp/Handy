@@ -1,12 +1,6 @@
 enum RadioMessage {
     message1 = 49434
 }
-/**
- * Messenger
- */
-input.onPinPressed(TouchPin.P3, function () {
-	
-})
 input.onButtonPressed(Button.A, function () {
     if (MainMenuSeite > 1) {
         MainMenuSeite += -1
@@ -41,7 +35,7 @@ input.onButtonPressed(Button.A, function () {
     }
     if (MessengerAktiv == 1) {
         if (MessengerTastatur == 1) {
-            Buchtabe += -1
+            MessengerBuchstabe += -1
         }
     }
 })
@@ -57,7 +51,34 @@ input.onGesture(Gesture.Shake, function () {
         MainMenuSeite = 2
         ImMainMenu = 1
     }
+    if (RechnerAktiv == 1) {
+        RechnerAusgerechnet = 0
+        RechnerAuswahl1 = 0
+        RechnerAuswahl1Aktiv = 1
+        RechnerAuswahl2 = 0
+        RechnerAuswahl2Aktiv = 0
+        RechnerAuswahl3 = 0
+        RechnerAuswahl3Aktiv = 0
+        RechnerZahl1 = 0
+        RechnerZahl2 = 0
+        RechnerZahl3 = 0
+        RechnerAktiv = 0
+        MainMenuSeite = 1
+        ImMainMenu = 1
+    }
+    if (MessengerAktiv == 1) {
+        MessengerAktiv = 0
+        MainMenuSeite = 3
+        ImMainMenu = 1
+        ImMainMenu = 1
+        MessengerTastatur = 0
+        Messengerempfangen = 0
+        MessengerBuchstabe = 1
+    }
 })
+function Bluetooth () {
+	
+}
 input.onButtonPressed(Button.AB, function () {
     if (RechnerAktiv == 1) {
         if (RechnerAuswahl1Aktiv == 1) {
@@ -129,7 +150,7 @@ input.onButtonPressed(Button.AB, function () {
             Messenger()
         }
         if (MainMenuSeite == 4) {
-        	
+            Bluetooth()
         }
         if (MainMenuSeite == 5) {
         	
@@ -175,7 +196,7 @@ input.onButtonPressed(Button.B, function () {
     }
     if (MessengerAktiv == 1) {
         if (MessengerTastatur == 1) {
-            Buchtabe += 1
+            MessengerBuchstabe += 1
         }
     }
 })
@@ -191,11 +212,11 @@ function Messenger () {
     MessengerAktiv = 1
 }
 let Messengerempfangen = 0
-let RechnerAusgerechnet = 0
 let RechnerZahl3 = 0
 let RechnerZahl2 = 0
 let RechnerZahl1 = 0
-let Buchtabe = 0
+let RechnerAusgerechnet = 0
+let MessengerBuchstabe = 0
 let MessengerTastatur = 0
 let MessengerAktiv = 0
 let RechnerAuswahl3 = 0
@@ -217,26 +238,49 @@ EinstellungenGruppenNummer = 0
 EinstellungenGruppenPages = 0
 basic.forever(function () {
     if (ImMainMenu == 1) {
-        if (MainMenuSeite == 2) {
-            basic.showLeds(`
-                . . . . .
-                # # . # #
-                . # # # .
-                # # . # #
-                . # . . .
-                `)
-        }
-    }
-})
-basic.forever(function () {
-    if (ImMainMenu == 1) {
         if (MainMenuSeite == 1) {
             basic.showLeds(`
                 . # . . .
                 # # # . .
                 . # . . .
                 . . # # #
-                # . . . .
+                . . . . .
+                `)
+        }
+        if (MainMenuSeite == 2) {
+            basic.showLeds(`
+                . . . . .
+                # # . # #
+                . # # # .
+                # # . # #
+                . . . . .
+                `)
+        }
+        if (MainMenuSeite == 3) {
+            basic.showLeds(`
+                . # # # .
+                # # # # #
+                # # # # #
+                . # # # .
+                # # . . .
+                `)
+        }
+        if (MainMenuSeite == 4) {
+            basic.showLeds(`
+                # . # # .
+                . # # . #
+                . . # # .
+                . # # . #
+                # . # # .
+                `)
+        }
+        if (MainMenuSeite == 5) {
+            basic.showLeds(`
+                . . . . .
+                . . . . .
+                # # # # #
+                . . . . .
+                . . . . .
                 `)
         }
     }
@@ -249,82 +293,82 @@ basic.forever(function () {
 basic.forever(function () {
     if (MessengerAktiv == 1) {
         if (MessengerTastatur == 1) {
-            if (Buchtabe == 1) {
+            if (MessengerBuchstabe == 1) {
                 basic.showString("A")
             }
-            if (Buchtabe == 2) {
+            if (MessengerBuchstabe == 2) {
                 basic.showString("B")
             }
-            if (Buchtabe == 3) {
+            if (MessengerBuchstabe == 3) {
                 basic.showString("C")
             }
-            if (Buchtabe == 4) {
+            if (MessengerBuchstabe == 4) {
                 basic.showString("D")
             }
-            if (Buchtabe == 5) {
+            if (MessengerBuchstabe == 5) {
                 basic.showString("E")
             }
-            if (Buchtabe == 6) {
+            if (MessengerBuchstabe == 6) {
                 basic.showString("F")
             }
-            if (Buchtabe == 7) {
+            if (MessengerBuchstabe == 7) {
                 basic.showString("G")
             }
-            if (Buchtabe == 8) {
+            if (MessengerBuchstabe == 8) {
                 basic.showString("H")
             }
-            if (Buchtabe == 9) {
+            if (MessengerBuchstabe == 9) {
                 basic.showString("I")
             }
-            if (Buchtabe == 10) {
+            if (MessengerBuchstabe == 10) {
                 basic.showString("J")
             }
-            if (Buchtabe == 11) {
+            if (MessengerBuchstabe == 11) {
                 basic.showString("K")
             }
-            if (Buchtabe == 12) {
+            if (MessengerBuchstabe == 12) {
                 basic.showString("L")
             }
-            if (Buchtabe == 13) {
+            if (MessengerBuchstabe == 13) {
                 basic.showString("M")
             }
-            if (Buchtabe == 14) {
+            if (MessengerBuchstabe == 14) {
                 basic.showString("N")
             }
-            if (Buchtabe == 15) {
+            if (MessengerBuchstabe == 15) {
                 basic.showString("O")
             }
-            if (Buchtabe == 16) {
+            if (MessengerBuchstabe == 16) {
                 basic.showString("P")
             }
-            if (Buchtabe == 17) {
+            if (MessengerBuchstabe == 17) {
                 basic.showString("Q")
             }
-            if (Buchtabe == 17) {
+            if (MessengerBuchstabe == 17) {
                 basic.showString("R")
             }
-            if (Buchtabe == 18) {
+            if (MessengerBuchstabe == 18) {
                 basic.showString("S")
             }
-            if (Buchtabe == 19) {
+            if (MessengerBuchstabe == 19) {
                 basic.showString("T")
             }
-            if (Buchtabe == 20) {
+            if (MessengerBuchstabe == 20) {
                 basic.showString("U")
             }
-            if (Buchtabe == 21) {
+            if (MessengerBuchstabe == 21) {
                 basic.showString("V")
             }
-            if (Buchtabe == 22) {
+            if (MessengerBuchstabe == 22) {
                 basic.showString("W")
             }
-            if (Buchtabe == 23) {
+            if (MessengerBuchstabe == 23) {
                 basic.showString("X")
             }
-            if (Buchtabe == 24) {
+            if (MessengerBuchstabe == 24) {
                 basic.showString("Y")
             }
-            if (Buchtabe == 25) {
+            if (MessengerBuchstabe == 25) {
                 basic.showString("Z")
             }
         }
@@ -348,19 +392,6 @@ basic.forever(function () {
     if (RechnerAktiv == 1) {
         if (RechnerAuswahl3Aktiv == 1) {
             basic.showNumber(RechnerAuswahl3)
-        }
-    }
-})
-basic.forever(function () {
-    if (ImMainMenu == 1) {
-        if (MainMenuSeite == 3) {
-            basic.showLeds(`
-                # . . . #
-                # # . # #
-                # . # . #
-                # . . . #
-                . . # . .
-                `)
         }
     }
 })
@@ -403,32 +434,6 @@ basic.forever(function () {
                     . # # # .
                     `)
             }
-        }
-    }
-})
-basic.forever(function () {
-    if (ImMainMenu == 1) {
-        if (MainMenuSeite == 4) {
-            basic.showLeds(`
-                . . . . .
-                . . . . .
-                # # # # #
-                . . . . .
-                . . . # .
-                `)
-        }
-    }
-})
-basic.forever(function () {
-    if (ImMainMenu == 1) {
-        if (MainMenuSeite == 5) {
-            basic.showLeds(`
-                . . . . .
-                . . . . .
-                # # # # #
-                . . . . .
-                . . . . #
-                `)
         }
     }
 })
